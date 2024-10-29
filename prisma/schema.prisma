@@ -1,0 +1,16 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Idea {
+  id          Int      @id @default(autoincrement())
+  content     String
+  type        String   // 'enhanced' or 'random'
+  originalIdea String?
+  createdAt   DateTime @default(now())
+} 
